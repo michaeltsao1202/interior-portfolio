@@ -15,7 +15,7 @@ export async function generateMetadata({
   const project = projects.find((p) => p.id === id);
   if (!project) return { title: "作品未找到" };
   return {
-    title: `${project.title} | INTERIOR STUDIO`,
+    title: `${project.title} | 陳設計作品集`,
     description: project.description,
   };
 }
@@ -41,7 +41,7 @@ export default async function WorkDetail({
             href="/"
             className="text-lg font-semibold tracking-wider"
           >
-            INTERIOR<span className="text-muted-foreground">STUDIO</span>
+            陳<span className="text-muted-foreground">設計</span>
           </Link>
           <Link
             href="/#works"
@@ -62,6 +62,7 @@ export default async function WorkDetail({
             {project.title}
           </h1>
           <div className="flex flex-wrap gap-6 text-sm text-muted-foreground">
+            <span>{project.role}</span>
             <span>{project.location}</span>
             <span>{project.area}</span>
             <span className="font-mono">{project.year}</span>
@@ -91,6 +92,12 @@ export default async function WorkDetail({
             </p>
           </div>
           <div className="space-y-6 border-t border-border pt-6 md:border-t-0 md:border-l md:pt-0 md:pl-12">
+            <div>
+              <div className="mb-1 text-xs uppercase tracking-widest text-muted-foreground">
+                我的角色
+              </div>
+              <div className="text-sm">{project.role}</div>
+            </div>
             <div>
               <div className="mb-1 text-xs uppercase tracking-widest text-muted-foreground">
                 類別
